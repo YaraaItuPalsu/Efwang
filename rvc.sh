@@ -13,6 +13,8 @@ CLANG_DIR="/workspace/RvKernel-Builder/clang-18"
 #
 export PATH="$CLANG_DIR/bin:$PATH"
 
+MAKE="./makeparallel"
+
 mkdir -p out
 make O=out ARCH=arm64 $DEFCONFIG
 
