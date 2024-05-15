@@ -15,7 +15,7 @@ mkdir out/RvKernel/NSE
 
 #
 export KBUILD_BUILD_USER=Radika
-export KBUILD_BUILD_HOST=Rve27
+export KBUILD_BUILD_HOST=Viana
 export PATH="$CLANGDIR/bin:$PATH"
 
 #
