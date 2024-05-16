@@ -9,8 +9,10 @@ rm -rf out
 #
 mkdir -p out
 mkdir out/RvKernel
-mkdir out/RvKernel/SE
-mkdir out/RvKernel/NSE
+mkdir out/RvKernel/SE_Stock
+mkdir out/RvKernel/NSE_Stock
+mkdir out/RvKernel/SE_OC
+mkdir out/RvKernel/NSE_OC
 
 
 #
@@ -47,25 +49,55 @@ CROSS_COMPILE=aarch64-linux-gnu- \
 CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 }
 
-#SE
+#SE Stock
 cp RvKernel/SE/* arch/arm64/boot/dts/qcom/
+cp RvKernel/STOCK/sdm845-v2.dtsi arch/arm64/boot/dts/qcom/
+cp RvKernel/STOCK/gpucc-sdm845.c drivers/clk/qcom/
 rve 2>&1 | tee -a compile.log
 if [ $? -ne 0 ]
 then
     echo "Build failed"
 else
     echo "Build succesful"
-    cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/SE/Image.gz-dtb
+    cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/SE_Stock/Image.gz-dtb
     
-    #NSE
+    #NSE Stock
     cp RvKernel/NSE/* arch/arm64/boot/dts/qcom/
+    cp RvKernel/STOCK/sdm845-v2.dtsi arch/arm64/boot/dts/qcom/
+    cp RvKernel/STOCK/gpucc-sdm845.c drivers/clk/qcom/
     rve
     if [ $? -ne 0 ]
     then
         echo "Build failed"
     else
         echo "Build succesful"
-        cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/NSE/Image.gz-dtb
+        cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/NSE_Stock/Image.gz-dtb
+        
+        #SE Overclock
+        cp RvKernel/SE/* arch/arm64/boot/dts/qcom/
+        cp RvKernel/OC/sdm845-v2.dtsi arch/arm64/boot/dts/qcom/
+        cp RvKernel/OC/gpucc-sdm845.c drivers/clk/qcom/
+        rve
+        if [ $? -ne 0 ]
+        then
+            echo "Build failed"
+        else
+            echo "Build succesful"
+            cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/SE_OC/Image.gz-dtb
+            
+            #NSE Overclock
+            cp RvKernel/NSE/* arch/arm64/boot/dts/qcom/
+            cp RvKernel/OC/sdm845-v2.dtsi arch/arm64/boot/dts/qcom/
+            cp RvKernel/OC/gpucc-sdm845.c drivers/clk/qcom/
+            rve
+            if [ $? -ne 0 ]
+            then
+                echo "Build failed"
+            else
+                echo "Build succesful"
+                cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/NSE_OC/Image.gz-dtb
+            fi
+        fi
     fi
 fi
 
