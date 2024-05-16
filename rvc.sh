@@ -49,7 +49,7 @@ CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 
 #SE
 cp RvKernel/SE/* arch/arm64/boot/dts/qcom/
-rve | tee -a compile.log
+rve 2>&1 | tee -a compile.log
 if [ $? -ne 0 ]
 then
     echo "Build failed"
