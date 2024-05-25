@@ -5,6 +5,7 @@ CLANGDIR="/workspace/RvKernel-Builder/clang"
 
 #
 rm -rf out
+rm -rf compile.log
 
 #
 mkdir -p out
