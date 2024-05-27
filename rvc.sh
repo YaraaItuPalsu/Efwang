@@ -4,7 +4,6 @@ DEFCONFIG="rvkernel/rvkernel_defconfig"
 CLANGDIR="/workspace/RvKernel-Builder/clang"
 
 #
-rm -rf out
 rm -rf compile.log
 
 #
