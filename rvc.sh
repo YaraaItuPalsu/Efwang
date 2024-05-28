@@ -1,7 +1,7 @@
 #!/bin/sh
 
 DEFCONFIG="rvkernel/rvkernel_defconfig"
-CLANGDIR="/workspace/RvKernel-Builder/clang"
+CLANGDIR="/root/clang"
 
 #
 rm -rf compile.log
@@ -17,7 +17,7 @@ mkdir out/RvKernel/NSE_OC
 
 #
 export KBUILD_BUILD_USER=Radika
-export KBUILD_BUILD_HOST=Viana
+export KBUILD_BUILD_HOST=Rve27
 export PATH="$CLANGDIR/bin:$PATH"
 
 #
