@@ -37,7 +37,7 @@ nocol='\033[0m'
 rve () {
 make -j$(nproc --all) O=out LLVM=1 \
 ARCH=arm64 \
-CC=clang \
+CC="ccache clang" \
 LD=ld.lld \
 AR=llvm-ar \
 AS=llvm-as \
