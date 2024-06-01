@@ -109,7 +109,7 @@ static void i2c_msm_dbg_dump_diag(struct i2c_msm_ctrl *ctrl,
 	}
 
 	/* dump xfer details */
-	dev_err(ctrl->dev,
+	dev_dbg(ctrl->dev,
 		"%s: msgs(n:%d cur:%d %s) bc(rx:%zu tx:%zu) mode:%s slv_addr:0x%0x MSTR_STS:0x%08x OPER:0x%08x\n",
 		str, xfer->msg_cnt, xfer->cur_buf.msg_idx,
 		xfer->cur_buf.is_rx ? "rx" : "tx", xfer->rx_cnt, xfer->tx_cnt,
@@ -2333,7 +2333,7 @@ i2c_msm_frmwrk_xfer(struct i2c_adapter *adap, struct i2c_msg msgs[], int num)
 
 	/* if system is suspended just bail out */
 	if (ctrl->pwr_state == I2C_MSM_PM_SYS_SUSPENDED) {
-		dev_err(ctrl->dev,
+		dev_dbg(ctrl->dev,
 				"slave:0x%x is calling xfer when system is suspended\n",
 				msgs->addr);
 		return -EIO;
