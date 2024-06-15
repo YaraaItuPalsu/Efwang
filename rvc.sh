@@ -9,15 +9,15 @@ rm -rf compile.log
 #
 mkdir -p out
 mkdir out/RvKernel
-mkdir out/RvKernel/SE_Stock
-mkdir out/RvKernel/NSE_Stock
+#mkdir out/RvKernel/SE_Stock
+#mkdir out/RvKernel/NSE_Stock
 mkdir out/RvKernel/SE_OC
-mkdir out/RvKernel/NSE_OC
+#mkdir out/RvKernel/NSE_OC
 
 
 #
-export KBUILD_BUILD_USER=Radika
-export KBUILD_BUILD_HOST=Rve27
+export KBUILD_BUILD_USER=yaraaitupalsu
+export KBUILD_BUILD_HOST=ovaduraivu
 export PATH="$CLANGDIR/bin:$PATH"
 
 #
