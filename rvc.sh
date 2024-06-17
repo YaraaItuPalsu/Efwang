@@ -50,28 +50,28 @@ CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 }
 
 #SE Stock
-cp RvKernel/SE/* arch/arm64/boot/dts/qcom/
-cp RvKernel/STOCK/sdm845-v2.dtsi arch/arm64/boot/dts/qcom/
-cp RvKernel/STOCK/gpucc-sdm845.c drivers/clk/qcom/
-rve 2>&1 | tee -a compile.log
-if [ $? -ne 0 ]
-then
-    echo "Build failed"
-else
-    echo "Build succesful"
-    cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/SE_Stock/Image.gz-dtb
+#cp RvKernel/SE/* arch/arm64/boot/dts/qcom/
+#cp RvKernel/STOCK/sdm845-v2.dtsi arch/arm64/boot/dts/qcom/
+#cp RvKernel/STOCK/gpucc-sdm845.c drivers/clk/qcom/
+#rve 2>&1 | tee -a compile.log
+#if [ $? -ne 0 ]
+#then
+#    echo "Build failed"
+#else
+#    echo "Build succesful"
+#    cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/SE_Stock/Image.gz-dtb
     
-    #NSE Stock
-    cp RvKernel/NSE/* arch/arm64/boot/dts/qcom/
-    cp RvKernel/STOCK/sdm845-v2.dtsi arch/arm64/boot/dts/qcom/
-    cp RvKernel/STOCK/gpucc-sdm845.c drivers/clk/qcom/
-    rve
-    if [ $? -ne 0 ]
-    then
-        echo "Build failed"
-    else
-        echo "Build succesful"
-        cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/NSE_Stock/Image.gz-dtb
+#    #NSE Stock
+#    cp RvKernel/NSE/* arch/arm64/boot/dts/qcom/
+#    cp RvKernel/STOCK/sdm845-v2.dtsi arch/arm64/boot/dts/qcom/
+#    cp RvKernel/STOCK/gpucc-sdm845.c drivers/clk/qcom/
+#    rve
+#    if [ $? -ne 0 ]
+#    then
+#        echo "Build failed"
+#    else
+#        echo "Build succesful"
+#        cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/NSE_Stock/Image.gz-dtb
         
         #SE Overclock
         cp RvKernel/SE/* arch/arm64/boot/dts/qcom/
