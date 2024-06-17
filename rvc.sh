@@ -86,16 +86,16 @@ CROSS_COMPILE_ARM32=arm-linux-gnueabi-
             cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/SE_OC/Image.gz-dtb
             
             #NSE Overclock
-            cp RvKernel/NSE/* arch/arm64/boot/dts/qcom/
-            cp RvKernel/OC/sdm845-v2.dtsi arch/arm64/boot/dts/qcom/
-            cp RvKernel/OC/gpucc-sdm845.c drivers/clk/qcom/
-            rve
-            if [ $? -ne 0 ]
-            then
-                echo "Build failed"
-            else
-                echo "Build succesful"
-                cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/NSE_OC/Image.gz-dtb
+            #cp RvKernel/NSE/* arch/arm64/boot/dts/qcom/
+            #cp RvKernel/OC/sdm845-v2.dtsi arch/arm64/boot/dts/qcom/
+            #cp RvKernel/OC/gpucc-sdm845.c drivers/clk/qcom/
+            #rve
+            #if [ $? -ne 0 ]
+            #then
+            #    echo "Build failed"
+            #else
+            #    echo "Build succesful"
+            #    cp out/arch/arm64/boot/Image.gz-dtb out/RvKernel/NSE_OC/Image.gz-dtb
             fi
         fi
     fi
